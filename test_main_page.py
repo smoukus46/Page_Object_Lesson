@@ -17,10 +17,10 @@ def test_guest_should_see_login_link(browser):
     page.open()
     page.should_be_login_link()
 
-def test_login_page_form(browser):
-    link = "http://selenium1py.pythonanywhere.com/accounts/login/"
+def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/"
     page = MainPage(browser, link)
     page.open()
-    login_page = LoginPage(browser, link)
-    login_page.should_be_login_page()
+    page.check_basket()
+    page.should_be_empty_basket()
 
