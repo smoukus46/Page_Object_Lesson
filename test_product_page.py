@@ -11,15 +11,6 @@ from selenium.common.exceptions import TimeoutException
 link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"    
 link1 = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
 
-@pytest.mark.need_review
-def test_user_can_add_product_to_basket(browser):
-    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
-    page = PageObject(browser, link)
-    page.open()
-    page.add_to_basket()
-    time.sleep(2)
-    page.compare()
-
 @pytest.mark.need_review  
 def test_guest_can_add_product_to_basket(browser):    
     page=PageObject(browser, link1,timeout=5)
@@ -70,7 +61,16 @@ class TestUserAddToBasketFromProductPage():
         loginPage.register_new_user()
         time.sleep(5)
         loginPage.should_be_authorized_user()
-        
+
+    @pytest.mark.need_review
+    def test_user_can_add_product_to_basket(browser):
+        link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+        page = PageObject(browser, link)
+        page.open()
+        page.add_to_basket()
+        page.should_be_correct_price()
+        page.should_be_correct_name()
+              
     def test_user_guest_can_add_product_to_basket(self,browser):
        link="http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
        page=PageObject(browser, link,timeout=5)

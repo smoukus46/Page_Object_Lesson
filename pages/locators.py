@@ -22,4 +22,12 @@ class Locators():
     CHECK_BSKT=(By.CSS_SELECTOR, ".btn-group>.btn.btn-default")
     TXT3=(By.CSS_SELECTOR, "#messages")
     BUY=(By.CSS_SELECTOR,".btn.btn-lg.btn-primary.btn-block")
+
+class ProductPageLocators:
+    ADD_BUTTON = (By.CSS_SELECTOR, ".btn-add-to-basket")
+    PRODUCT_PRICE_PAGE = (By.CSS_SELECTOR, ".product_main > .price_color")
+    PRODUCT_PRICE_BASKET = (By.CSS_SELECTOR, ".basket-mini")
+    PRODUCT_NAME_PAGE = (By.CSS_SELECTOR, " div > h1")
+    PRODUCT_NAME_BASKET = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div > strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")
   
